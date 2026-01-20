@@ -15,7 +15,11 @@ import {
   Palette,
   MousePointerClick,
   TrendingUp,
-  Clock
+  Clock,
+  Sparkles,
+  Monitor,
+  Layers,
+  Lock
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Navbar } from "@/components/layout/Navbar";
@@ -26,23 +30,25 @@ import { CTASection } from "@/components/home/CTASection";
 const services = [
   {
     id: "websites",
-    icon: Globe,
+    icon: Monitor,
     title: "Website Development",
     tagline: "Your website is your best salesperson. Make it count.",
     problem: "Most websites are slow, generic, and don't convert visitors into customers. You need a digital presence that builds trust instantly and drives measurable results.",
     solution: "We architect high-performance websites with stunning design, SEO optimization, and conversion-focused UX. Every element is crafted to turn visitors into loyal customers.",
     features: [
-      "Custom design (no templates)",
-      "Mobile-first responsive",
-      "SEO optimized from day one",
-      "3-second load time guarantee",
-      "Analytics & tracking setup",
-      "CMS integration",
-      "Ongoing maintenance",
+      "AI-Powered Design & Personalization",
+      "Core Web Vitals Optimized (LCP < 2.5s)",
+      "Voice Search & Accessibility Ready",
+      "Headless CMS with Edge Deployment",
+      "Advanced Analytics & Heatmaps",
+      "Progressive Web App (PWA) Support",
+      "Cybersecurity & SSL by Default",
+      "Multi-language & RTL Support",
     ],
     idealFor: "Startups launching products, SMBs rebranding, enterprises needing portals",
-    techStack: ["React", "Next.js", "Tailwind", "Headless CMS", "Vercel"],
+    techStack: ["React 19", "Next.js 15", "Tailwind v4", "Sanity/Strapi", "Vercel Edge"],
     color: "from-blue-500 to-cyan-400",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop",
   },
   {
     id: "mobile",
@@ -286,32 +292,92 @@ const Services = () => {
                       </div>
                     </div>
 
-                    {/* Visual */}
-                    <div className={index % 2 === 1 ? "lg:order-1" : ""}>
-                      <motion.div
-                        whileHover={{ scale: 1.02 }}
-                        className="relative aspect-square rounded-3xl overflow-hidden glass-card p-8"
-                      >
-                        {/* Gradient Background */}
-                        <div className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-10`} />
-                        
-                        {/* Mock UI */}
-                        <div className="relative h-full flex items-center justify-center">
-                          <div className="w-full max-w-sm space-y-4">
-                            <div className="h-8 w-32 rounded-lg bg-white/10" />
-                            <div className="space-y-2">
-                              <div className="h-4 w-full rounded bg-white/5" />
-                              <div className="h-4 w-3/4 rounded bg-white/5" />
-                              <div className="h-4 w-1/2 rounded bg-white/5" />
+                      {/* Visual */}
+                      <div className={index % 2 === 1 ? "lg:order-1" : ""}>
+                        {service.id === "websites" ? (
+                          <motion.div
+                            whileHover={{ scale: 1.02 }}
+                            className="relative rounded-3xl overflow-hidden"
+                          >
+                            <div className="relative aspect-[4/3]">
+                              <img 
+                                src={service.image} 
+                                alt="Website Development"
+                                className="w-full h-full object-cover rounded-3xl"
+                              />
+                              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />
+                              <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-transparent" />
+                              
+                              <div className="absolute bottom-6 left-6 right-6">
+                                <div className="grid grid-cols-2 gap-3">
+                                  <motion.div 
+                                    initial={{ opacity: 0, y: 20 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    transition={{ delay: 0.1 }}
+                                    className="glass-card p-4 rounded-xl border border-white/10"
+                                  >
+                                    <Sparkles className="w-6 h-6 text-primary mb-2" />
+                                    <p className="text-sm font-medium text-foreground">AI-Powered</p>
+                                    <p className="text-xs text-muted-foreground">Smart Design</p>
+                                  </motion.div>
+                                  <motion.div 
+                                    initial={{ opacity: 0, y: 20 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    transition={{ delay: 0.2 }}
+                                    className="glass-card p-4 rounded-xl border border-white/10"
+                                  >
+                                    <Gauge className="w-6 h-6 text-cyan-400 mb-2" />
+                                    <p className="text-sm font-medium text-foreground">Lightning Fast</p>
+                                    <p className="text-xs text-muted-foreground">&lt; 2.5s Load</p>
+                                  </motion.div>
+                                  <motion.div 
+                                    initial={{ opacity: 0, y: 20 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    transition={{ delay: 0.3 }}
+                                    className="glass-card p-4 rounded-xl border border-white/10"
+                                  >
+                                    <Lock className="w-6 h-6 text-emerald-400 mb-2" />
+                                    <p className="text-sm font-medium text-foreground">Secure</p>
+                                    <p className="text-xs text-muted-foreground">SSL & Security</p>
+                                  </motion.div>
+                                  <motion.div 
+                                    initial={{ opacity: 0, y: 20 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    transition={{ delay: 0.4 }}
+                                    className="glass-card p-4 rounded-xl border border-white/10"
+                                  >
+                                    <Layers className="w-6 h-6 text-purple-400 mb-2" />
+                                    <p className="text-sm font-medium text-foreground">Scalable</p>
+                                    <p className="text-xs text-muted-foreground">Edge Ready</p>
+                                  </motion.div>
+                                </div>
+                              </div>
                             </div>
-                            <div className="grid grid-cols-2 gap-4 pt-4">
-                              <div className="h-24 rounded-xl bg-white/5 border border-white/10" />
-                              <div className="h-24 rounded-xl bg-white/5 border border-white/10" />
+                          </motion.div>
+                        ) : (
+                          <motion.div
+                            whileHover={{ scale: 1.02 }}
+                            className="relative aspect-square rounded-3xl overflow-hidden glass-card p-8"
+                          >
+                            <div className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-10`} />
+                            
+                            <div className="relative h-full flex items-center justify-center">
+                              <div className="w-full max-w-sm space-y-4">
+                                <div className="h-8 w-32 rounded-lg bg-white/10" />
+                                <div className="space-y-2">
+                                  <div className="h-4 w-full rounded bg-white/5" />
+                                  <div className="h-4 w-3/4 rounded bg-white/5" />
+                                  <div className="h-4 w-1/2 rounded bg-white/5" />
+                                </div>
+                                <div className="grid grid-cols-2 gap-4 pt-4">
+                                  <div className="h-24 rounded-xl bg-white/5 border border-white/10" />
+                                  <div className="h-24 rounded-xl bg-white/5 border border-white/10" />
+                                </div>
+                              </div>
                             </div>
-                          </div>
-                        </div>
-                      </motion.div>
-                    </div>
+                          </motion.div>
+                        )}
+                      </div>
                   </div>
                 </AnimatedSection>
               ))}
