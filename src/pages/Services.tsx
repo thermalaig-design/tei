@@ -16,10 +16,12 @@ import {
   MousePointerClick,
   TrendingUp,
   Clock,
-  Sparkles,
-  Monitor,
   Layers,
-  Lock
+  Monitor,
+  Cpu,
+  Workflow,
+  Settings,
+  Sparkles
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Navbar } from "@/components/layout/Navbar";
@@ -30,23 +32,22 @@ import { CTASection } from "@/components/home/CTASection";
 const services = [
   {
     id: "websites",
-    icon: Monitor,
+    icon: Globe,
     title: "Website Development",
     tagline: "Your website is your best salesperson. Make it count.",
     problem: "Most websites are slow, generic, and don't convert visitors into customers. You need a digital presence that builds trust instantly and drives measurable results.",
     solution: "We architect high-performance websites with stunning design, SEO optimization, and conversion-focused UX. Every element is crafted to turn visitors into loyal customers.",
     features: [
-      "AI-Powered Design & Personalization",
-      "Core Web Vitals Optimized (LCP < 2.5s)",
-      "Voice Search & Accessibility Ready",
-      "Headless CMS with Edge Deployment",
-      "Advanced Analytics & Heatmaps",
-      "Progressive Web App (PWA) Support",
-      "Cybersecurity & SSL by Default",
-      "Multi-language & RTL Support",
+      "Custom design (no templates)",
+      "Mobile-first responsive",
+      "SEO optimized from day one",
+      "3-second load time guarantee",
+      "Analytics & tracking setup",
+      "CMS integration",
+      "Ongoing maintenance",
     ],
     idealFor: "Startups launching products, SMBs rebranding, enterprises needing portals",
-    techStack: ["React 19", "Next.js 15", "Tailwind v4", "Sanity/Strapi", "Vercel Edge"],
+    techStack: ["React", "Next.js", "Tailwind", "Headless CMS", "Vercel"],
     color: "from-blue-500 to-cyan-400",
     image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop",
   },
@@ -54,101 +55,111 @@ const services = [
     id: "mobile",
     icon: Smartphone,
     title: "Mobile App Development",
-    tagline: "iOS & Android apps users actually love to use.",
-    problem: "Building mobile apps is expensive and complex. Most apps fail because they're slow, buggy, or don't solve real user problems.",
-    solution: "We build native and cross-platform mobile apps with buttery-smooth performance, intuitive UX, and the features your users actually need.",
+    tagline: "Native & Cross-Platform Apps That Users Love",
+    problem: "In 2026, users expect lightning-fast, beautifully designed mobile experiences. Generic apps with poor UX get uninstalled within minutes.",
+    solution: "We craft pixel-perfect mobile applications with cutting-edge technologies, ensuring seamless performance across iOS and Android with a single codebase efficiency.",
     features: [
-      "Native iOS & Android apps",
-      "Cross-platform (React Native)",
+      "Flutter & React Native expertise",
+      "AI-powered personalization",
       "Offline-first architecture",
-      "Push notifications",
-      "App Store optimization",
-      "Analytics integration",
-      "Continuous updates",
+      "Biometric authentication",
+      "Real-time sync & notifications",
+      "App Store optimization (ASO)",
+      "Continuous OTA updates",
+      "Performance monitoring",
     ],
-    idealFor: "Startups with mobile-first products, enterprises needing internal apps",
-    techStack: ["React Native", "Swift", "Kotlin", "Firebase", "Expo"],
+    idealFor: "Startups, E-commerce, Healthcare, FinTech, Enterprise mobility",
+    techStack: ["Flutter", "React Native", "Swift", "Kotlin", "Firebase", "Supabase"],
     color: "from-purple-500 to-pink-400",
+    image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=2070&auto=format&fit=crop",
   },
   {
     id: "webapps",
-    icon: AppWindow,
+    icon: Layers,
     title: "Web Application Development",
-    tagline: "Scalable SaaS platforms built for growth.",
-    problem: "Building a web application that scales is hard. Many startups hit walls when their MVP can't handle growth.",
-    solution: "We architect web applications with modern, scalable infrastructure from day one. Your platform will handle 10 users or 10 million without breaking a sweat.",
+    tagline: "Scalable SaaS & Enterprise Platforms",
+    problem: "Building web applications that scale from MVP to millions of users while maintaining speed and reliability is a complex challenge in 2026.",
+    solution: "We architect robust web applications using serverless infrastructure, microservices, and modern frameworks that grow with your business seamlessly.",
     features: [
-      "Microservices architecture",
-      "Real-time capabilities",
+      "Serverless & edge computing",
+      "Real-time collaboration features",
+      "Multi-tenant SaaS architecture",
       "Role-based access control",
       "API-first design",
-      "Multi-tenant support",
-      "CI/CD pipelines",
-      "99.9% uptime SLA",
+      "Progressive Web App (PWA)",
+      "Auto-scaling infrastructure",
+      "99.99% uptime guarantee",
     ],
-    idealFor: "SaaS startups, enterprise applications, complex dashboards",
-    techStack: ["React", "Node.js", "PostgreSQL", "Redis", "AWS/GCP"],
+    idealFor: "SaaS products, Enterprise dashboards, Collaboration tools, CRM systems",
+    techStack: ["Next.js", "Node.js", "PostgreSQL", "Redis", "AWS", "Vercel"],
     color: "from-orange-500 to-amber-400",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop",
   },
   {
     id: "ai",
-    icon: Brain,
+    icon: Sparkles,
     title: "AI & Machine Learning Solutions",
-    tagline: "Intelligent automation that saves hours every day.",
-    problem: "AI seems complex and expensive. Most businesses don't know where to start or how to get real ROI from AI investments.",
-    solution: "We make AI practical and accessible. From chatbots to predictive analytics, we implement AI solutions that deliver measurable business value.",
+    tagline: "Transform Your Business With Intelligent Automation",
+    problem: "In 2026, businesses without AI integration are falling behind. Manual processes, generic customer experiences, and missed insights cost millions.",
+    solution: "We implement cutting-edge AI solutions that automate operations, personalize experiences, and unlock data-driven insights for competitive advantage.",
     features: [
-      "Custom AI chatbots",
-      "Predictive analytics",
-      "Natural language processing",
-      "Computer vision",
-      "Recommendation engines",
-      "Process automation",
-      "Model training & optimization",
+      "Custom GPT & LLM integration",
+      "Intelligent chatbots & agents",
+      "Predictive analytics dashboards",
+      "Computer vision solutions",
+      "Voice AI & speech recognition",
+      "RAG-based knowledge systems",
+      "AI-powered automation",
+      "Model fine-tuning & optimization",
     ],
-    idealFor: "Customer service automation, data analysis, content generation",
-    techStack: ["Python", "TensorFlow", "OpenAI", "LangChain", "Vector DBs"],
+    idealFor: "Customer support, Sales automation, Content generation, Data analytics",
+    techStack: ["OpenAI", "Claude", "LangChain", "Python", "TensorFlow", "Vector DBs"],
     color: "from-emerald-500 to-teal-400",
+    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=2070&auto=format&fit=crop",
   },
   {
     id: "automation",
-    icon: Zap,
+    icon: Workflow,
     title: "Business Automation",
-    tagline: "Workflows that run on autopilot.",
-    problem: "Your team wastes hours on repetitive tasks. Manual processes slow you down and increase errors.",
-    solution: "We build custom automation workflows that eliminate repetitive work, reduce errors, and free your team to focus on high-value activities.",
+    tagline: "Eliminate Repetitive Work, Scale Operations",
+    problem: "Your team spends 40% of their time on repetitive tasks in 2026. Manual data entry, report generation, and disconnected systems drain productivity.",
+    solution: "We design intelligent automation workflows that connect your tools, eliminate manual work, and let your team focus on high-impact activities.",
     features: [
-      "Workflow automation",
-      "CRM integrations",
-      "Email automation",
-      "Data synchronization",
-      "Reporting automation",
-      "Invoice processing",
-      "Custom integrations",
+      "End-to-end workflow automation",
+      "CRM & ERP integrations",
+      "Automated reporting & alerts",
+      "Document processing & OCR",
+      "Email & communication flows",
+      "Invoice & payment automation",
+      "Custom API integrations",
+      "AI-enhanced decision making",
     ],
-    idealFor: "Operations teams, sales teams, finance departments",
-    techStack: ["Zapier", "Make", "n8n", "Custom APIs", "Webhooks"],
+    idealFor: "Operations teams, Finance departments, HR, Sales & Marketing",
+    techStack: ["n8n", "Make", "Zapier", "Custom APIs", "Webhooks", "RPA"],
     color: "from-yellow-500 to-orange-400",
+    image: "https://images.unsplash.com/photo-1518186285589-2f7649de83e0?q=80&w=2074&auto=format&fit=crop",
   },
   {
     id: "custom",
-    icon: Code2,
+    icon: Settings,
     title: "Custom Software Development",
-    tagline: "Built exactly for your unique process.",
-    problem: "Off-the-shelf software doesn't fit your workflow. You need something built specifically for how your business operates.",
-    solution: "We build custom software tailored to your exact requirements. No compromises, no workarounds—just a perfect fit for your business.",
+    tagline: "Tailored Solutions For Unique Challenges",
+    problem: "Off-the-shelf software forces you to adapt your processes. In 2026, businesses need technology that molds to their unique workflows, not the other way around.",
+    solution: "We build bespoke software solutions designed around your specific requirements, integrating seamlessly with existing systems and scaling with your growth.",
     features: [
-      "Requirements analysis",
-      "Custom architecture",
-      "Legacy system integration",
-      "Data migration",
-      "User training",
-      "Documentation",
-      "Long-term support",
+      "Deep requirements discovery",
+      "Custom architecture design",
+      "Legacy system modernization",
+      "Seamless data migration",
+      "Third-party integrations",
+      "Security & compliance built-in",
+      "Comprehensive documentation",
+      "Long-term support & evolution",
     ],
-    idealFor: "Unique business processes, legacy modernization, competitive advantages",
-    techStack: ["Custom Stack", "Enterprise Integration", "Cloud Native"],
+    idealFor: "Unique business processes, Legacy modernization, Competitive advantages",
+    techStack: ["Custom Stack", "Cloud Native", "Enterprise Integration", "DevOps"],
     color: "from-indigo-500 to-violet-400",
+    image: "https://images.unsplash.com/photo-1504639725590-34d0984388bd?q=80&w=2074&auto=format&fit=crop",
   },
 ];
 
@@ -294,89 +305,33 @@ const Services = () => {
 
                       {/* Visual */}
                       <div className={index % 2 === 1 ? "lg:order-1" : ""}>
-                        {service.id === "websites" ? (
-                          <motion.div
-                            whileHover={{ scale: 1.02 }}
-                            className="relative rounded-3xl overflow-hidden"
-                          >
-                            <div className="relative aspect-[4/3]">
-                              <img 
-                                src={service.image} 
-                                alt="Website Development"
-                                className="w-full h-full object-cover rounded-3xl"
-                              />
-                              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />
-                              <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-transparent" />
-                              
-                              <div className="absolute bottom-6 left-6 right-6">
-                                <div className="grid grid-cols-2 gap-3">
-                                  <motion.div 
-                                    initial={{ opacity: 0, y: 20 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    transition={{ delay: 0.1 }}
-                                    className="glass-card p-4 rounded-xl border border-white/10"
-                                  >
-                                    <Sparkles className="w-6 h-6 text-primary mb-2" />
-                                    <p className="text-sm font-medium text-foreground">AI-Powered</p>
-                                    <p className="text-xs text-muted-foreground">Smart Design</p>
-                                  </motion.div>
-                                  <motion.div 
-                                    initial={{ opacity: 0, y: 20 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    transition={{ delay: 0.2 }}
-                                    className="glass-card p-4 rounded-xl border border-white/10"
-                                  >
-                                    <Gauge className="w-6 h-6 text-cyan-400 mb-2" />
-                                    <p className="text-sm font-medium text-foreground">Lightning Fast</p>
-                                    <p className="text-xs text-muted-foreground">&lt; 2.5s Load</p>
-                                  </motion.div>
-                                  <motion.div 
-                                    initial={{ opacity: 0, y: 20 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    transition={{ delay: 0.3 }}
-                                    className="glass-card p-4 rounded-xl border border-white/10"
-                                  >
-                                    <Lock className="w-6 h-6 text-emerald-400 mb-2" />
-                                    <p className="text-sm font-medium text-foreground">Secure</p>
-                                    <p className="text-xs text-muted-foreground">SSL & Security</p>
-                                  </motion.div>
-                                  <motion.div 
-                                    initial={{ opacity: 0, y: 20 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    transition={{ delay: 0.4 }}
-                                    className="glass-card p-4 rounded-xl border border-white/10"
-                                  >
-                                    <Layers className="w-6 h-6 text-purple-400 mb-2" />
-                                    <p className="text-sm font-medium text-foreground">Scalable</p>
-                                    <p className="text-xs text-muted-foreground">Edge Ready</p>
-                                  </motion.div>
-                                </div>
+                        <motion.div
+                          whileHover={{ scale: 1.02 }}
+                          className="relative aspect-[4/3] rounded-3xl overflow-hidden group"
+                        >
+                          {/* Image */}
+                          <img 
+                            src={service.image} 
+                            alt={service.title}
+                            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                          />
+                          {/* Gradient Overlay */}
+                          <div className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-30 mix-blend-overlay`} />
+                          <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent" />
+                          
+                          {/* Floating Badge */}
+                          <div className="absolute bottom-6 left-6 right-6">
+                            <div className="glass-card px-4 py-3 rounded-xl flex items-center gap-3">
+                              <div className={`w-10 h-10 rounded-lg bg-gradient-to-br ${service.color} flex items-center justify-center`}>
+                                <service.icon className="w-5 h-5 text-white" />
+                              </div>
+                              <div>
+                                <p className="text-sm font-semibold text-foreground">{service.title}</p>
+                                <p className="text-xs text-muted-foreground">Expert Solutions</p>
                               </div>
                             </div>
-                          </motion.div>
-                        ) : (
-                          <motion.div
-                            whileHover={{ scale: 1.02 }}
-                            className="relative aspect-square rounded-3xl overflow-hidden glass-card p-8"
-                          >
-                            <div className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-10`} />
-                            
-                            <div className="relative h-full flex items-center justify-center">
-                              <div className="w-full max-w-sm space-y-4">
-                                <div className="h-8 w-32 rounded-lg bg-white/10" />
-                                <div className="space-y-2">
-                                  <div className="h-4 w-full rounded bg-white/5" />
-                                  <div className="h-4 w-3/4 rounded bg-white/5" />
-                                  <div className="h-4 w-1/2 rounded bg-white/5" />
-                                </div>
-                                <div className="grid grid-cols-2 gap-4 pt-4">
-                                  <div className="h-24 rounded-xl bg-white/5 border border-white/10" />
-                                  <div className="h-24 rounded-xl bg-white/5 border border-white/10" />
-                                </div>
-                              </div>
-                            </div>
-                          </motion.div>
-                        )}
+                          </div>
+                        </motion.div>
                       </div>
                   </div>
                 </AnimatedSection>
