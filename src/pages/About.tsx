@@ -2,26 +2,21 @@ import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion"
 import { useState, useEffect, useRef } from "react";
 import { 
   Award,
-  Target,
   Eye,
   Sparkles,
   Shield,
   Users,
-  Globe,
   CheckCircle,
   ChevronUp,
   Rocket,
   Heart,
   Zap,
-  TrendingUp,
-  Code,
-  Lightbulb,
-  MapPin
+  TrendingUp
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
-import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/ui/AnimatedSection";
+import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { CTASection } from "@/components/home/CTASection";
 
 const values = [
@@ -65,33 +60,6 @@ const stats = [
   { value: "50+", label: "Expert Team", icon: Users },
   { value: "8+", label: "Years Experience", icon: TrendingUp },
   { value: "100%", label: "Client Satisfaction", icon: Heart },
-];
-
-const milestones = [
-  {
-    year: "2016",
-    title: "The Beginning",
-    description: "Started with a vision to transform digital experiences in India.",
-    image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=500&auto=format&fit=crop",
-  },
-  {
-    year: "2018",
-    title: "Growing Strong",
-    description: "Expanded our team and delivered 100+ successful projects.",
-    image: "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=500&auto=format&fit=crop",
-  },
-  {
-    year: "2020",
-    title: "Digital Revolution",
-    description: "Helped businesses navigate digital transformation during challenging times.",
-    image: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=500&auto=format&fit=crop",
-  },
-  {
-    year: "2024",
-    title: "Industry Leaders",
-    description: "Recognized as a leading digital solutions provider with 500+ projects.",
-    image: "https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=500&auto=format&fit=crop",
-  },
 ];
 
 const About = () => {
@@ -243,7 +211,7 @@ const About = () => {
             </AnimatedSection>
 
             {/* Story Content */}
-            <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
               <AnimatedSection direction="left">
                 <div className="space-y-6">
                   <div className="glass-card p-6 border-l-4 border-primary">
@@ -267,7 +235,7 @@ const About = () => {
                   </div>
 
                   <p className="text-muted-foreground leading-relaxed">
-                    Founded in 2016, we started with a simple belief: every business deserves 
+                    We started with a simple belief: every business deserves 
                     access to world-class digital solutions. Today, we've helped 500+ businesses 
                     transform their digital presence and achieve remarkable growth.
                   </p>
@@ -275,72 +243,31 @@ const About = () => {
               </AnimatedSection>
 
               <AnimatedSection direction="right">
-                <div className="grid grid-cols-2 gap-4">
-                  {milestones.map((milestone, index) => (
-                    <motion.div
-                      key={milestone.year}
-                      initial={{ opacity: 0, scale: 0.8 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      transition={{ delay: index * 0.1 }}
-                      viewport={{ once: true }}
-                      whileHover={{ y: -8, scale: 1.02 }}
-                      className="relative group overflow-hidden rounded-2xl"
-                    >
-                      <img 
-                        src={milestone.image} 
-                        alt={milestone.title}
-                        className="w-full h-40 object-cover transition-transform duration-500 group-hover:scale-110"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent" />
-                      <div className="absolute bottom-0 left-0 right-0 p-4">
-                        <span className="text-xs font-bold text-primary">{milestone.year}</span>
-                        <h4 className="font-display font-semibold text-foreground text-sm">
-                          {milestone.title}
-                        </h4>
-                      </div>
-                    </motion.div>
-                  ))}
+                <div className="relative">
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    whileHover={{ scale: 1.02 }}
+                    className="relative overflow-hidden rounded-2xl"
+                  >
+                    <img 
+                      src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=800&auto=format&fit=crop"
+                      alt="Our Team"
+                      className="w-full h-80 object-cover transition-transform duration-500 hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
+                    <div className="absolute bottom-0 left-0 right-0 p-6">
+                      <h4 className="font-display text-xl font-bold text-foreground mb-2">
+                        Industry Leaders
+                      </h4>
+                      <p className="text-sm text-muted-foreground">
+                        Recognized as a leading digital solutions provider with 500+ successful projects.
+                      </p>
+                    </div>
+                  </motion.div>
                 </div>
               </AnimatedSection>
-            </div>
-
-            {/* Timeline */}
-            <div className="relative">
-              <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-accent to-primary/20 -translate-x-1/2" />
-              
-              <div className="space-y-8">
-                {milestones.map((milestone, index) => (
-                  <motion.div
-                    key={milestone.year}
-                    initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.5 }}
-                    viewport={{ once: true }}
-                    className={`flex items-center gap-8 ${index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"}`}
-                  >
-                    <div className={`flex-1 ${index % 2 === 0 ? "md:text-right" : "md:text-left"}`}>
-                      <motion.div 
-                        whileHover={{ scale: 1.02 }}
-                        className="glass-card p-6 inline-block"
-                      >
-                        <span className="text-2xl font-bold gradient-text">{milestone.year}</span>
-                        <h4 className="font-display text-lg font-semibold text-foreground mt-2">
-                          {milestone.title}
-                        </h4>
-                        <p className="text-sm text-muted-foreground mt-2">
-                          {milestone.description}
-                        </p>
-                      </motion.div>
-                    </div>
-                    
-                    <div className="hidden md:flex w-12 h-12 rounded-full bg-gradient-to-br from-primary to-accent items-center justify-center z-10 shadow-lg shadow-primary/30 flex-shrink-0">
-                      <Sparkles className="w-5 h-5 text-white" />
-                    </div>
-                    
-                    <div className="flex-1 hidden md:block" />
-                  </motion.div>
-                ))}
-              </div>
             </div>
           </div>
         </section>
@@ -446,69 +373,6 @@ const About = () => {
                 </motion.div>
               ))}
             </div>
-          </div>
-        </section>
-
-        {/* Location Section */}
-        <section className="py-20 relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-secondary/20 to-transparent" />
-          
-          <div className="container-wide relative z-10">
-            <AnimatedSection className="text-center max-w-3xl mx-auto">
-              <motion.div
-                initial={{ scale: 0 }}
-                whileInView={{ scale: 1 }}
-                transition={{ type: "spring" }}
-                viewport={{ once: true }}
-                className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-accent flex items-center justify-center mx-auto mb-6"
-              >
-                <MapPin className="w-8 h-8 text-white" />
-              </motion.div>
-              
-              <h2 className="heading-lg text-foreground mb-6">
-                Our <span className="gradient-text">Office</span>
-              </h2>
-              <p className="body-lg text-muted-foreground mb-8">
-                Visit us at our office in the heart of India's capital city.
-              </p>
-              
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                whileHover={{ scale: 1.02 }}
-                className="inline-flex items-center gap-3 glass-card px-8 py-4"
-              >
-                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center">
-                  <span className="text-lg">🇮🇳</span>
-                </div>
-                <div className="text-left">
-                  <p className="font-semibold text-foreground">Delhi, India</p>
-                  <p className="text-sm text-muted-foreground">Headquarters</p>
-                </div>
-              </motion.div>
-
-              <div className="flex flex-wrap justify-center gap-4 mt-10">
-                <Link to="/contact">
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="btn-primary"
-                  >
-                    Contact Us
-                  </motion.button>
-                </Link>
-                <Link to="/services">
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="btn-secondary"
-                  >
-                    Our Services
-                  </motion.button>
-                </Link>
-              </div>
-            </AnimatedSection>
           </div>
         </section>
 
