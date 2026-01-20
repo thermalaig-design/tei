@@ -48,30 +48,32 @@ export const Footer = () => {
         <div className="py-16 lg:py-20 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 lg:gap-12">
           {/* Brand Column */}
           <div className="col-span-2 md:col-span-3 lg:col-span-2">
-            <Link to="/" className="flex items-center gap-2 mb-6">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center">
-                <span className="font-display font-bold text-xl text-white">N</span>
-              </div>
-              <span className="font-display font-bold text-xl text-foreground">
-                Nexus<span className="text-primary">Lab</span>
+            <Link to="/" className="flex items-center gap-3 mb-6">
+              <img 
+                src="/image.png" 
+                alt="Thermal Engineers and Insulators Private Limited Logo" 
+                className="h-10 w-auto object-contain"
+              />
+              <span className="font-display font-bold text-lg text-foreground max-w-xs truncate">
+                Thermal Engineers and Insulators Private Limited
               </span>
             </Link>
             <p className="text-muted-foreground mb-6 max-w-sm">
-              We architect digital ecosystems that transform how businesses operate. From idea to scale—premium software that works.
+              Professional thermal engineering and insulation services. Experts in industrial thermal solutions and energy efficiency.
             </p>
             {/* Contact Info */}
             <div className="space-y-3 text-sm">
-              <a href="mailto:hello@nexuslab.dev" className="flex items-center gap-3 text-muted-foreground hover:text-foreground transition-colors">
+              <a href="mailto:info@teipl.com" className="flex items-center gap-3 text-muted-foreground hover:text-foreground transition-colors">
                 <Mail className="w-4 h-4 text-primary" />
-                hello@nexuslab.dev
+                info@teipl.com
               </a>
-              <a href="tel:+15551234567" className="flex items-center gap-3 text-muted-foreground hover:text-foreground transition-colors">
+              <a href="tel:+919876543210" className="flex items-center gap-3 text-muted-foreground hover:text-foreground transition-colors">
                 <Phone className="w-4 h-4 text-primary" />
-                +1 (555) 123-4567
+                +91 98765 43210
               </a>
               <div className="flex items-center gap-3 text-muted-foreground">
                 <MapPin className="w-4 h-4 text-primary" />
-                San Francisco, CA
+                Mumbai, India
               </div>
             </div>
           </div>
@@ -148,7 +150,7 @@ export const Footer = () => {
         {/* Bottom Bar */}
         <div className="py-6 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center gap-4">
           <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} NexusLab. All rights reserved.
+            © {new Date().getFullYear()} Thermal Engineers and Insulators Private Limited. All rights reserved.
           </p>
           <div className="flex items-center gap-4">
             {socialLinks.map((social) => (

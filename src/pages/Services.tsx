@@ -7,7 +7,15 @@ import {
   Zap, 
   Code2,
   Check,
-  ArrowRight
+  ArrowRight,
+  Rocket,
+  Shield,
+  Search,
+  Gauge,
+  Palette,
+  MousePointerClick,
+  TrendingUp,
+  Clock
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Navbar } from "@/components/layout/Navbar";
@@ -144,27 +152,68 @@ const Services = () => {
       <Navbar />
       <main>
         {/* Hero */}
-        <section className="pt-32 pb-20 relative overflow-hidden">
-          <div className="absolute inset-0 grid-pattern opacity-30" />
+        <section className="pt-32 pb-24 relative overflow-hidden min-h-[70vh] flex items-center">
+          <div 
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+            style={{
+              backgroundImage: "url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop')",
+            }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-background/95 via-background/80 to-background" />
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-transparent to-accent/10" />
+          
           <motion.div
-            className="absolute top-1/3 -left-32 w-96 h-96 rounded-full bg-primary/20 blur-[100px]"
+            className="absolute top-1/3 -left-32 w-96 h-96 rounded-full bg-primary/30 blur-[120px]"
             animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
+            transition={{ duration: 8, repeat: Infinity }}
+          />
+          <motion.div
+            className="absolute bottom-1/3 -right-32 w-96 h-96 rounded-full bg-accent/30 blur-[120px]"
+            animate={{ scale: [1.2, 1, 1.2], opacity: [0.3, 0.5, 0.3] }}
             transition={{ duration: 8, repeat: Infinity }}
           />
           
           <div className="container-wide relative z-10">
             <AnimatedSection className="text-center max-w-4xl mx-auto">
-              <span className="inline-block text-sm font-semibold text-primary uppercase tracking-wider mb-4">
+              <motion.span 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                className="inline-block text-sm font-semibold text-primary uppercase tracking-wider mb-4 px-4 py-2 rounded-full bg-primary/10 border border-primary/20"
+              >
                 Our Services
-              </span>
+              </motion.span>
               <h1 className="heading-xl text-foreground mb-6">
-                Full-Stack Digital Solutions{" "}
-                <span className="gradient-text">That Deliver</span>
+                Transforming Ideas Into{" "}
+                <span className="gradient-text">Digital Excellence</span>
               </h1>
-              <p className="body-lg">
-                From websites to AI—we build the technology that powers your growth. 
-                Every solution is crafted for performance, scalability, and results.
+              <p className="text-xl text-muted-foreground mb-4 leading-relaxed">
+                Where Innovation Meets Execution — We Don't Just Build Software, We Architect Your Digital Future
               </p>
+              <p className="body-lg max-w-2xl mx-auto">
+                From cutting-edge websites to intelligent AI solutions, our expert team delivers technology 
+                that drives growth, efficiency, and competitive advantage for businesses worldwide.
+              </p>
+              
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+                className="flex flex-wrap justify-center gap-6 mt-10"
+              >
+                <div className="flex items-center gap-2 text-muted-foreground">
+                  <Check className="w-5 h-5 text-primary" />
+                  <span>100+ Projects Delivered</span>
+                </div>
+                <div className="flex items-center gap-2 text-muted-foreground">
+                  <Check className="w-5 h-5 text-primary" />
+                  <span>5+ Years Experience</span>
+                </div>
+                <div className="flex items-center gap-2 text-muted-foreground">
+                  <Check className="w-5 h-5 text-primary" />
+                  <span>Global Clientele</span>
+                </div>
+              </motion.div>
             </AnimatedSection>
           </div>
         </section>
