@@ -29,13 +29,13 @@ const FloatingParticle = ({ delay, duration, x, y, color }: { delay: number; dur
 
 export const CTASection = () => {
   const particles = useMemo(() => 
-    [...Array(18)].map((_, i) => ({ // Reduced from 30 to 18 particles
+    [...Array(6)].map((_, i) => ({ // Further reduced from 18 to 6 particles
       id: i,
-      x: 8 + (i * 5) % 88,
-      y: 8 + (i * 9) % 88,
-      duration: 6 + (i % 3), // Longer durations
-      delay: (i % 6) * 0.7, // Longer delays
-      color: ['#8b5cf6', '#06b6d4', '#f97316'][i % 3], // Fewer colors
+      x: 20 + (i * 15) % 60,
+      y: 20 + (i * 20) % 60,
+      duration: 15 + (i % 2), // Even longer durations
+      delay: (i % 3) * 2, // Longer delays
+      color: ['#8b5cf6', '#06b6d4'][i % 2], // Only 2 colors
     }))
   , []);
 
@@ -126,32 +126,27 @@ export const CTASection = () => {
 
       <motion.div
         animate={{
-          scale: [1, 1.5, 1],
-          opacity: [0.15, 0.35, 0.15],
-          x: [0, 80, 0],
-          y: [0, -40, 0],
+          scale: [1, 1.2, 1],
+          opacity: [0.08, 0.18, 0.08],
         }}
-        transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-0 left-0 w-[800px] h-[800px] rounded-full bg-gradient-to-br from-violet-600/40 to-purple-500/20 blur-[200px]"
+        transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute top-0 left-0 w-[500px] h-[500px] rounded-full bg-gradient-to-br from-violet-600/25 to-purple-500/10 blur-[150px]"
       />
       <motion.div
         animate={{
-          scale: [1.4, 1, 1.4],
-          opacity: [0.12, 0.3, 0.12],
-          x: [0, -100, 0],
-          y: [0, 50, 0],
+          scale: [1.1, 1, 1.1],
+          opacity: [0.06, 0.15, 0.06],
         }}
-        transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute bottom-0 right-0 w-[900px] h-[900px] rounded-full bg-gradient-to-tl from-cyan-500/35 to-blue-500/15 blur-[220px]"
+        transition={{ duration: 25, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute bottom-0 right-0 w-[600px] h-[600px] rounded-full bg-gradient-to-tl from-cyan-500/20 to-blue-500/10 blur-[180px]"
       />
       <motion.div
         animate={{
-          opacity: [0.1, 0.25, 0.1],
-          scale: [1, 1.3, 1],
-          rotate: [0, 10, 0],
+          opacity: [0.03, 0.1, 0.03],
+          scale: [1, 1.1, 1],
         }}
-        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] rounded-full bg-gradient-radial from-orange-500/20 via-pink-500/10 to-transparent blur-[150px]"
+        transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full bg-gradient-radial from-orange-500/10 via-pink-500/5 to-transparent blur-[120px]"
       />
 
       {particles.map((particle) => (
@@ -180,29 +175,19 @@ export const CTASection = () => {
                 />
                 
                 <motion.div
-                  animate={{ y: [-15, 15, -15], x: [-5, 5, -5] }}
-                  transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                  className="absolute top-16 left-16 w-4 h-4 rounded-full bg-violet-500/60 blur-sm"
+                  animate={{ y: [-10, 10, -10] }}
+                  transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+                  className="absolute top-16 left-16 w-2.5 h-2.5 rounded-full bg-violet-500/35 blur-sm"
                 />
                 <motion.div
-                  animate={{ y: [15, -15, 15], x: [5, -5, 5] }}
-                  transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-                  className="absolute bottom-16 right-16 w-3 h-3 rounded-full bg-cyan-500/60 blur-sm"
+                  animate={{ y: [10, -10, 10] }}
+                  transition={{ duration: 11, repeat: Infinity, ease: "easeInOut" }}
+                  className="absolute bottom-16 right-16 w-2 h-2 rounded-full bg-cyan-500/35 blur-sm"
                 />
                 <motion.div
-                  animate={{ x: [-12, 12, -12], y: [8, -8, 8] }}
-                  transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
-                  className="absolute top-1/2 right-24 w-2.5 h-2.5 rounded-full bg-orange-500/50 blur-sm"
-                />
-                <motion.div
-                  animate={{ scale: [1, 1.5, 1], opacity: [0.3, 0.6, 0.3] }}
-                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                  className="absolute top-24 right-1/3 w-2 h-2 rounded-full bg-pink-500/50"
-                />
-                <motion.div
-                  animate={{ scale: [1.3, 1, 1.3], opacity: [0.4, 0.7, 0.4] }}
-                  transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-                  className="absolute bottom-24 left-1/4 w-2 h-2 rounded-full bg-emerald-500/50"
+                  animate={{ scale: [1, 1.3, 1], opacity: [0.2, 0.4, 0.2] }}
+                  transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+                  className="absolute top-24 right-1/3 w-1.5 h-1.5 rounded-full bg-pink-500/30"
                 />
 
                 <div className="absolute top-10 left-10">

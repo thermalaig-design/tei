@@ -107,13 +107,13 @@ export const IndustriesSection = () => {
   // const overlayOpacity = useTransform(scrollYProgress, [0, 0.5, 1], [0.7, 0.5, 0.7]);
 
   const particles = useMemo(() => 
-    [...Array(15)].map((_, i) => ({ // Reduced from 25 to 15 particles
+    [...Array(4)].map((_, i) => ({ // Further reduced from 15 to 4 particles
       id: i,
-      x: 10 + (i * 6) % 85,
-      y: 10 + (i * 10) % 85,
-      duration: 5 + (i % 3), // Longer durations
-      delay: (i % 4) * 0.8, // Longer delays
-      color: ['#3b82f6', '#10b981', '#8b5cf6'][i % 3], // Fewer colors
+      x: 25 + (i * 25) % 50,
+      y: 25 + (i * 30) % 50,
+      duration: 15 + (i % 2), // Even longer durations
+      delay: (i % 2) * 3, // Longer delays
+      color: ['#3b82f6', '#10b981'][i % 2], // Only 2 colors
     }))
   , []);
 
@@ -214,29 +214,27 @@ export const IndustriesSection = () => {
 
       <motion.div
         animate={{
-          scale: [1, 1.4, 1],
-          opacity: [0.1, 0.25, 0.1],
-          x: [0, 50, 0],
-        }}
-        transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-0 right-0 w-[700px] h-[700px] rounded-full bg-gradient-to-bl from-blue-500/30 to-cyan-400/15 blur-[180px]"
-      />
-      <motion.div
-        animate={{
-          scale: [1.3, 1, 1.3],
-          opacity: [0.1, 0.28, 0.1],
-          x: [0, -60, 0],
-        }}
-        transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute bottom-0 left-0 w-[750px] h-[750px] rounded-full bg-gradient-to-tr from-emerald-500/30 to-violet-400/15 blur-[200px]"
-      />
-      <motion.div
-        animate={{
-          opacity: [0.08, 0.2, 0.08],
           scale: [1, 1.2, 1],
+          opacity: [0.06, 0.15, 0.06],
         }}
-        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-gradient-radial from-orange-400/15 via-transparent to-transparent blur-[120px]"
+        transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute top-0 right-0 w-[400px] h-[400px] rounded-full bg-gradient-to-bl from-blue-500/20 to-cyan-400/10 blur-[120px]"
+      />
+      <motion.div
+        animate={{
+          scale: [1.1, 1, 1.1],
+          opacity: [0.06, 0.18, 0.06],
+        }}
+        transition={{ duration: 22, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute bottom-0 left-0 w-[450px] h-[450px] rounded-full bg-gradient-to-tr from-emerald-500/20 to-violet-400/10 blur-[150px]"
+      />
+      <motion.div
+        animate={{
+          opacity: [0.03, 0.1, 0.03],
+          scale: [1, 1.1, 1],
+        }}
+        transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-gradient-radial from-orange-400/10 via-transparent to-transparent blur-[90px]"
       />
 
       {particles.map((particle) => (

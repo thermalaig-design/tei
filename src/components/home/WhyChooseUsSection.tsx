@@ -99,13 +99,13 @@ export const WhyChooseUsSection = () => {
   // const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "25%"]);
 
   const particles = useMemo(() => 
-    [...Array(12)].map((_, i) => ({ // Reduced from 30 to 12 particles
+    [...Array(5)].map((_, i) => ({ // Further reduced from 12 to 5 particles
       id: i,
-      x: 10 + (i * 8) % 85,
-      y: 10 + (i * 15) % 85,
-      duration: 7 + (i % 3), // Longer durations
-      delay: (i % 4) * 0.8, // Longer delays
-      color: ['#10b981', '#3b82f6', '#8b5cf6'][i % 3], // Fewer colors
+      x: 20 + (i * 20) % 60,
+      y: 20 + (i * 25) % 60,
+      duration: 12 + (i % 2), // Even longer durations
+      delay: (i % 3) * 2, // Longer delays
+      color: ['#10b981', '#3b82f6'][i % 2], // Only 2 colors
     }))
   , []);
 
@@ -205,29 +205,27 @@ export const WhyChooseUsSection = () => {
 
       <motion.div
         animate={{
-          scale: [1, 1.5, 1],
-          opacity: [0.15, 0.35, 0.15],
-          x: [0, 80, 0],
+          scale: [1, 1.2, 1],
+          opacity: [0.08, 0.18, 0.08],
         }}
-        transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-0 left-0 w-[800px] h-[800px] rounded-full bg-gradient-to-br from-emerald-600/40 to-teal-500/20 blur-[200px]"
+        transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute top-0 left-0 w-[500px] h-[500px] rounded-full bg-gradient-to-br from-emerald-600/25 to-teal-500/10 blur-[150px]"
       />
       <motion.div
         animate={{
-          scale: [1.4, 1, 1.4],
-          opacity: [0.12, 0.3, 0.12],
-          x: [0, -100, 0],
+          scale: [1.1, 1, 1.1],
+          opacity: [0.06, 0.15, 0.06],
         }}
-        transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute bottom-0 right-0 w-[900px] h-[900px] rounded-full bg-gradient-to-tl from-blue-600/35 to-violet-500/20 blur-[220px]"
+        transition={{ duration: 22, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute bottom-0 right-0 w-[600px] h-[600px] rounded-full bg-gradient-to-tl from-blue-600/20 to-violet-500/10 blur-[180px]"
       />
       <motion.div
         animate={{
-          opacity: [0.1, 0.25, 0.1],
-          scale: [1, 1.3, 1],
+          opacity: [0.03, 0.1, 0.03],
+          scale: [1, 1.1, 1],
         }}
-        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] rounded-full bg-gradient-radial from-orange-500/20 via-transparent to-transparent blur-[150px]"
+        transition={{ duration: 16, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full bg-gradient-radial from-orange-500/10 via-transparent to-transparent blur-[120px]"
       />
 
       {particles.map((particle) => (
@@ -235,14 +233,14 @@ export const WhyChooseUsSection = () => {
       ))}
 
       <motion.div
-        animate={{ y: [-15, 15, -15], x: [-5, 5, -5] }}
-        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-32 left-20 w-4 h-4 rounded-full bg-emerald-500/60 blur-sm"
+        animate={{ y: [-10, 10, -10] }}
+        transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute top-32 left-20 w-2.5 h-2.5 rounded-full bg-emerald-500/35 blur-sm"
       />
       <motion.div
-        animate={{ y: [15, -15, 15], x: [5, -5, 5] }}
-        transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute bottom-32 right-20 w-3 h-3 rounded-full bg-blue-500/60 blur-sm"
+        animate={{ y: [10, -10, 10] }}
+        transition={{ duration: 11, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute bottom-32 right-20 w-2 h-2 rounded-full bg-blue-500/35 blur-sm"
       />
 
       <div className="absolute top-20 left-16">

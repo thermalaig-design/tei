@@ -8,7 +8,7 @@ const typewriterTexts = [
   "Scale Your Business Digitally",
   "Automate. Innovate. Dominate.",
   "Where Ideas Meet Innovation",
-  "Build. Launch. Grow.",
+  "Launch. Grow.",
 ];
 
 const useTypewriter = (texts: string[], typingSpeed = 100, deletingSpeed = 50, pauseDuration = 2000) => {
@@ -77,13 +77,13 @@ export const HeroSection = () => {
   // const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
   
   const particles = useMemo(() => 
-    [...Array(20)].map((_, i) => ({ // Reduced from 35 to 20 particles
+    [...Array(8)].map((_, i) => ({ // Further reduced from 20 to 8 particles
       id: i,
-      x: 5 + (i * 5) % 90,
-      y: 5 + (i * 8) % 90,
-      duration: 6 + (i % 3), // Longer durations
-      delay: (i % 6) * 0.6, // Longer delays
-      color: ['#3b82f6', '#06b6d4', '#8b5cf6'][i % 3], // Fewer colors
+      x: 10 + (i * 12) % 80,
+      y: 10 + (i * 15) % 80,
+      duration: 8 + (i % 2), // Even longer durations
+      delay: (i % 4) * 1.2, // Longer delays
+      color: ['#3b82f6', '#06b6d4'][i % 2], // Only 2 colors
     }))
   , []);
     
@@ -97,8 +97,8 @@ export const HeroSection = () => {
            }}>
       </div>
 
-      <div className="absolute inset-0 bg-gradient-to-b from-[#020617]/95 via-[#0a0f1a]/90 to-[#030712]/95" />
-      <div className="absolute inset-0 bg-[#030712]/60" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#0a0e2a]/95 via-[#121a3a]/90 to-[#0c1428]/95" />
+      <div className="absolute inset-0 bg-[#0c1428]/60" />
       
       <svg className="absolute inset-0 w-full h-full z-[1] opacity-30" xmlns="http://www.w3.org/2000/svg">
         <defs>
@@ -183,32 +183,27 @@ export const HeroSection = () => {
 
       <motion.div
         animate={{
-          scale: [1, 1.5, 1],
-          opacity: [0.15, 0.35, 0.15],
-          x: [0, 80, 0],
-          y: [0, -40, 0],
-        }}
-        transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-1/4 -left-32 w-[800px] h-[800px] rounded-full bg-gradient-to-br from-blue-600/40 to-cyan-500/20 blur-[200px] z-[4]"
-      />
-      <motion.div
-        animate={{
-          scale: [1.4, 1, 1.4],
-          opacity: [0.12, 0.3, 0.12],
-          x: [0, -100, 0],
-          y: [0, 50, 0],
+          scale: [1, 1.3, 1],
+          opacity: [0.1, 0.25, 0.1],
         }}
         transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute bottom-1/4 -right-32 w-[900px] h-[900px] rounded-full bg-gradient-to-tl from-cyan-500/35 to-violet-600/20 blur-[220px] z-[4]"
+        className="absolute top-1/4 -left-32 w-[600px] h-[600px] rounded-full bg-gradient-to-br from-blue-600/30 to-cyan-500/15 blur-[150px] z-[4]"
       />
       <motion.div
         animate={{
-          opacity: [0.1, 0.25, 0.1],
-          scale: [1, 1.3, 1],
-          rotate: [0, 10, 0],
+          scale: [1.2, 1, 1.2],
+          opacity: [0.08, 0.2, 0.08],
         }}
-        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] rounded-full bg-gradient-radial from-violet-500/25 via-pink-500/10 to-transparent blur-[150px] z-[4]"
+        transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute bottom-1/4 -right-32 w-[700px] h-[700px] rounded-full bg-gradient-to-tl from-cyan-500/25 to-violet-600/15 blur-[180px] z-[4]"
+      />
+      <motion.div
+        animate={{
+          opacity: [0.05, 0.15, 0.05],
+          scale: [1, 1.2, 1],
+        }}
+        transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-gradient-radial from-violet-500/20 via-pink-500/5 to-transparent blur-[120px] z-[4]"
       />
 
       {particles.map((particle) => (
@@ -216,19 +211,14 @@ export const HeroSection = () => {
       ))}
 
       <motion.div
-        animate={{ y: [-15, 15, -15], x: [-5, 5, -5] }}
-        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-32 left-20 w-4 h-4 rounded-full bg-blue-500/60 blur-sm z-[5]"
+        animate={{ y: [-10, 10, -10] }}
+        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute top-32 left-20 w-3 h-3 rounded-full bg-blue-500/40 blur-sm z-[5]"
       />
       <motion.div
-        animate={{ y: [15, -15, 15], x: [5, -5, 5] }}
-        transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute bottom-32 right-20 w-3 h-3 rounded-full bg-cyan-500/60 blur-sm z-[5]"
-      />
-      <motion.div
-        animate={{ x: [-12, 12, -12], y: [8, -8, 8] }}
+        animate={{ y: [10, -10, 10] }}
         transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-1/3 right-32 w-2.5 h-2.5 rounded-full bg-violet-500/50 blur-sm z-[5]"
+        className="absolute bottom-32 right-20 w-2.5 h-2.5 rounded-full bg-cyan-500/40 blur-sm z-[5]"
       />
 
       <div className="absolute top-20 left-16 z-[5]">
@@ -277,12 +267,6 @@ export const HeroSection = () => {
             <span className="block mt-2">
               <span className="relative">
                 <span className="bg-gradient-to-r from-primary via-violet-400 to-cyan-400 bg-clip-text text-transparent">{typewriterText}</span>
-                <motion.span
-                  className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-primary via-violet-400 to-cyan-400 rounded-full"
-                  initial={{ scaleX: 0 }}
-                  animate={{ scaleX: 1 }}
-                  transition={{ delay: 0.5, duration: 0.8 }}
-                />
               </span>
               <motion.span
                 animate={{ opacity: [1, 0] }}

@@ -179,7 +179,7 @@ const Contact = () => {
                     
                     <div className="space-y-6">
                       <motion.a
-                        href="mailto:hello@digitalarchitects.in"
+                        href="mailto:thermal.aig@gmail.com"
                         whileHover={{ x: 5 }}
                         className="flex items-start gap-4 group p-4 rounded-2xl hover:bg-white/5 transition-colors"
                       >
@@ -191,13 +191,13 @@ const Contact = () => {
                             Email Us
                           </div>
                           <div className="text-sm text-muted-foreground">
-                            hello@digitalarchitects.in
+                            thermal.aig@gmail.com
                           </div>
                         </div>
                       </motion.a>
 
                       <motion.a
-                        href="tel:+919876543210"
+                        href="tel:+919136373636"
                         whileHover={{ x: 5 }}
                         className="flex items-start gap-4 group p-4 rounded-2xl hover:bg-white/5 transition-colors"
                       >
@@ -209,7 +209,7 @@ const Contact = () => {
                             Call Us
                           </div>
                           <div className="text-sm text-muted-foreground">
-                            +91 98765 43210
+                            9136373636
                           </div>
                         </div>
                       </motion.a>
@@ -334,7 +334,7 @@ const Contact = () => {
                             <Input
                               id="phone"
                               type="tel"
-                              placeholder="+91 98765 43210"
+                              placeholder="9136373636"
                               className="bg-white/5 border-white/10 focus:border-primary/50 focus:bg-white/10 transition-all rounded-xl h-12"
                             />
                           </div>
@@ -421,39 +421,7 @@ const Contact = () => {
           </div>
         </section>
 
-        {/* FAQ or Additional Info */}
-        <section className="py-20 relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent" />
-          
-          <div className="container-wide relative z-10">
-            <AnimatedSection className="text-center max-w-3xl mx-auto">
-              <h2 className="heading-lg text-foreground mb-6">
-                Still Have <span className="gradient-text">Questions?</span>
-              </h2>
-              <p className="body-md text-muted-foreground mb-8">
-                Check out our FAQ section or reach out directly. We're always happy to help.
-              </p>
-              <div className="flex flex-wrap justify-center gap-4">
-                <motion.a
-                  href="/services"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="btn-primary"
-                >
-                  View Our Services
-                </motion.a>
-                <motion.a
-                  href="/portfolio"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="btn-secondary"
-                >
-                  See Our Work
-                </motion.a>
-              </div>
-            </AnimatedSection>
-          </div>
-        </section>
+
       </main>
       <Footer />
     </div>
